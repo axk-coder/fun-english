@@ -1,18 +1,20 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 export default defineConfig({
-  base: './',
+  base: "./",
+  plugins: [viteSingleFile()],
   server: {
     port: 5173,
     host: true,
     hmr: false,
     ws: false,
     watch: {
-      ignored: ['**/backend/**', '**/dist/**', '**/map.txt', '**/.git/**', '**/*.log']
+      ignored: ["**/backend/**", "**/dist/**", "**/map.txt", "**/.git/**", "**/*.log"]
     }
   },
   build: {
-    target: 'esnext',
-    outDir: 'dist'
+    target: "esnext",
+    outDir: "dist"
   }
 });
